@@ -1,0 +1,66 @@
+{{#each weatherdatabydate}}
+
+  <h3 class="text-lg font-bold"></h3>
+
+<div class="sticky z-50 top-0 left-0 right-0 bg-base-100 p-4 border-b border-gray-200"> 
+  <h2 class="text-xl font-bold">Weather Date: {{@key}}</h2>
+   <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+</div>
+
+  {{#each this}}
+    <div class="card bg-base-100 shadow-xl mb-2 ml-2 mr-2">
+      <div class="card-body">
+        <h1 class="card-title">{{@key}}</h1>
+        <div class="overflow-x-auto">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Time to Forecast</th>
+                <th>Observed</th>
+                <th>Weather Code</th>
+                <th>Temperature</th>
+                <th>Rainfall</th>
+                <th>Snowfall</th>
+                <th>Wind Speed</th>
+                <th>Wind Gusts</th>
+                <th>Wind Direction</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each this}}
+              <tr>
+                <td>{{timeDifference snapshot_date_time forecast_date_time}}</td>
+                <td>{{{observedIcon observed}}}</td>
+                <td>{{{weatherIcon weather_code forecast_day_night}}}</td>
+                <td>
+                  <progress class="progress progress-secondary w-16" value="{{classifyTemperature temperature}}" max="100"></progress><br>
+                  {{temperature}}&#176;c
+                </td>
+                <td>
+                  <progress class="progress progress-secondary w-16" value="{{classifyPrecipitation rainfall}}" max="100"></progress><br>
+                  {{rainfall}}mm
+                </td>
+                <td>
+                  <progress class="progress progress-secondary w-16" value="{{classifySnow snowfall}}" max="100"></progress><br>
+                  {{snowfall}}cm
+                </td>
+                <td>
+                  <progress class="progress progress-secondary w-16" value="{{wind_speed}}" max="100"></progress><br>
+                  {{wind_speed}}mph
+                </td>
+                <td>
+                  <progress class="progress progress-secondary w-16" value="{{wind_gusts}}" max="100"></progress><br>
+                  {{wind_gusts}}mph
+                </td>
+                <td>{{{degreeToArrow wind_direction}}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div> <!-- Close card-body and card divs here -->
+  {{/each}}
+{{/each}}

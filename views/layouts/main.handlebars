@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-theme="emerald">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Weather Validator</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="hero bg-base-200 min-h-screen">
+  <div class="hero-content flex-col lg:flex-row">
+    <img
+      src="https://cdn.creazilla.com/cliparts/7769463/weather-forecaster-clipart-lg.png"
+      class="max-w-sm rounded-lg shadow-2xl" />
+    <div>
+      <h1 class="text-5xl font-bold">Met Office Weather Validator</h1>
+      <p class="py-6">
+        View the respective dates below to see the trending forecast of a per-date per-hour view.
+      </p>
+ {{{body}}}
+
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+
+</html>
